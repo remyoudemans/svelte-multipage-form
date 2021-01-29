@@ -15,25 +15,24 @@
 
   $: currentQuestion = questionComponents[questionIndex];
 
-  // TODO: make it stop submitting
-  // TODO: also make it save to store!!
+  // TODO: make it save question data to store and prefill when necessary!!
 </script>
 
 <main>
   <h1>Welcome to the form</h1>
   <h2>You are on question {questionIndex}</h2>
 
-  <form on:submit={() => false}>
+  <form>
   <svelte:component this={currentQuestion} />
 
   {#if questionIndex > 0}
-    <button on:click={decrementQuestion}>Previous</button>
+    <button type="button" on:click|preventDefault={decrementQuestion}>Previous</button>
   {/if}
 
   {#if questionIndex < questionComponents.length - 1}
-    <button on:click={incrementQuestion}>Next</button>
+    <button type="submit" on:click|preventDefault={incrementQuestion}>Next</button>
   {:else}
-    <button on:click={() => console.log('submitted!')}>Submit</button>
+    <button type="submit" on:click|preventDefault={() => console.log('submitted!')}>Submit</button>
   {/if}
   </form>
 </main>
