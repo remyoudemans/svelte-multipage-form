@@ -1,6 +1,7 @@
 <script>
   import * as questions from '../components/questions'
   import Success from '../components/Success.svelte'
+  import Progress from '../components/Progress.svelte'
 
   let questionIndex = 0;
 
@@ -22,7 +23,7 @@
 <main>
   <h1>Welcome to the form</h1>
   {#if !formSubmitted}
-    <progress value={questionIndex} max={questionComponents.length - 1}/>
+    <Progress value={questionIndex} max={questionComponents.length - 1}/>
 
     <form>
       <div class='questionBox'>
