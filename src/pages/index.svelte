@@ -1,5 +1,6 @@
 <script>
   import * as questions from '../components/questions'
+  import Success from '../components/Success.svelte'
 
   let questionIndex = 0;
 
@@ -40,7 +41,7 @@
     </form>
   {:else}
     <div class='questionBox'>
-      <h2>Thanks for your time! You are a ⭐ </h2>
+      <Success />
     </div>
   {/if}
 </main>
