@@ -15,4 +15,7 @@
   }
 </script>
 
-<progress value={$progress} max={max}/>
+<label>
+  <progress value={$progress} max={max}/>
+  {value / max * 100}%
+</label>
