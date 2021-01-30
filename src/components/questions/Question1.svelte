@@ -1,17 +1,17 @@
 <script>
-  let name = '';
+  import formData from '../../stores/formData'
 </script>
 
 <label>
   Name
-  <input type='text' bind:value={name} />
+  <input type='text' bind:value={$formData.name} />
 </label>
 <p>
-  {#if !name}
+  {#if !$formData.name}
     Do you not have a name?
-  {:else if name.length > 20}
+  {:else if $formData.name.length > 20}
     Wow! Your name is really long!
   {:else}
-    Your name seems to be "{name}".
+    Your name seems to be "{$formData.name}".
   {/if}
 </p>

@@ -14,8 +14,6 @@
   };
 
   $: currentQuestion = questionComponents[questionIndex];
-
-  // TODO: make it save question data to store and prefill when necessary!!
 </script>
 
 <main>
