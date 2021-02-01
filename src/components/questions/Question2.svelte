@@ -1,8 +1,8 @@
 <script>
-  import formData from '../../stores/formData'
+  import formData from '../../stores/formData';
 </script>
 
 <label>
   Age
-  <input type='text' bind:value={$formData.age} />
+  <input type="text" bind:value={$formData.age} />
 </label>

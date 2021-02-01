@@ -1,10 +1,10 @@
 <script>
-  import formData from '../../stores/formData'
+  import formData from '../../stores/formData';
 </script>
 
 <label>
   Name
-  <input type='text' bind:value={$formData.name} />
+  <input type="text" bind:value={$formData.name} />
 </label>
 <p>
   {#if !$formData.name}

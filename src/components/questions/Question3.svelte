@@ -1,10 +1,10 @@
 <script>
-  import formData from '../../stores/formData'
+  import formData from '../../stores/formData';
 </script>
 
 <label>
   Favorite color
-  <input type='color' bind:value={$formData.favoriteColor} />
+  <input type="color" bind:value={$formData.favoriteColor} />
 </label>
 
 <style>

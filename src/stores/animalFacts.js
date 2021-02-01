@@ -1,6 +1,6 @@
-import { derived } from "svelte/store";
+import { derived } from 'svelte/store';
 
-import formData from "./formData";
+import formData from './formData';
 
 export default derived(formData, async ({ favoriteAnimal }) => {
   if (!favoriteAnimal) {
@@ -12,7 +12,7 @@ export default derived(formData, async ({ favoriteAnimal }) => {
   );
 
   if (!res.ok) {
-    throw new Error("Failed to fetch cat fact");
+    throw new Error('Failed to fetch cat fact');
   }
 
   const json = await res.json();

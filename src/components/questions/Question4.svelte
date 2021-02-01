@@ -1,6 +1,6 @@
 <script>
-  import formData from '../../stores/formData'
-  import animalFacts from '../../stores/animalFacts'
+  import formData from '../../stores/formData';
+  import animalFacts from '../../stores/animalFacts';
 </script>
 
 <label>

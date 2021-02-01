@@ -3,12 +3,12 @@
   export let max;
 
   import { tweened } from 'svelte/motion';
-	import { cubicOut } from 'svelte/easing';
+  import { cubicOut } from 'svelte/easing';
 
-	const progress = tweened(value, {
-		duration: 400,
-		easing: cubicOut
-	});
+  const progress = tweened(value, {
+    duration: 400,
+    easing: cubicOut,
+  });
 
   $: {
     $progress = value;
@@ -16,6 +16,6 @@
 </script>
 
 <label>
-  <progress value={$progress} max={max}/>
-  {Math.round(value / max * 100)}%
+  <progress value={$progress} {max} />
+  {Math.round((value / max) * 100)}%
 </label>
