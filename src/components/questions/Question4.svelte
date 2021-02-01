@@ -1,35 +1,6 @@
 <script>
   import formData from '../../stores/formData'
-
-  let fact;
-  let failed = false;
-  let loading = false;
-
-  $: {
-    (async () => {
-      if (!$formData.favoriteAnimal) {
-        return;
-      }
-
-      loading = true;
-
-      try {
-        const res = await fetch(`https://cat-fact.herokuapp.com/facts/random?animal_type=${$formData.favoriteAnimal ?? 'cat'}`);
-
-        if (!res.ok) {
-          throw new Error('Failed to fetch cat fact')
-        }
-
-        const json = await res.json();
-        fact = json.text;
-      } catch(e) {
-        failed = true;
-        
-      } finally {
-        loading = false;
-      }
-    })()
-  }
+  import animalFacts from '../../stores/animalFacts'
 </script>
 
 <label>
@@ -42,10 +13,14 @@
   </select>
 </label>
 
-{#if loading}
-  <p>....</p>
-{:else if fact && $formData.favoriteAnimal}
-  <h2>This is a fact about {$formData.favoriteAnimal}s:</h2>
-  <p>{fact}</p>
-  <p>Are you sure that they're your favorite?</p>
+{#if $formData.favoriteAnimal}
+  {#await $animalFacts}
+    <p>....</p>
+  {:then data}
+    <h2>This is a fact about {$formData.favoriteAnimal}s:</h2>
+    <p>{data}</p>
+    <p>Are you sure that they're your favorite?</p>
+  {:catch error}
+    <p>An error has occurred :(</p>
+  {/await}
 {/if}
