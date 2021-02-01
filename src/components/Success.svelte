@@ -1,6 +1,4 @@
 <script>
-  import { onMount } from 'svelte';
-
   const getCatFact = async () => {
     const res = await fetch('https://cat-fact.herokuapp.com/facts/random');
 
