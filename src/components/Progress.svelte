@@ -17,5 +17,5 @@
 
 <label>
   <progress value={$progress} max={max}/>
-  {value / max * 100}%
+  {Math.round(value / max * 100)}%
 </label>
