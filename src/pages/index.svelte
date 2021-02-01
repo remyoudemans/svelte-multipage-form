@@ -44,6 +44,10 @@
     <div class='questionBox'>
       <Success />
     </div>
+    <button on:click={() => {
+      questionIndex = 0;
+      formSubmitted = false;
+    }}>Go back to start?</button>
   {/if}
 </main>
 
